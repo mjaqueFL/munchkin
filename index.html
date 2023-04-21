@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang=es>
+<head>
+	<meta charset=utf-8 />
+	<meta name=viewport content='width=device-width, initial-scale=1' />
+	<meta name=author content='Miguel Jaque <mjaque@migueljaque.com' />
+	<link rel=stylesheet href=estilos.css />
+	<title>Munckin - Registro</title>
+</head>
+<body>
+	<img src=munchkin.png />
+	<h1>Formulario de Registro</h1>
+	<form action=munchkin.php method=POST onsubmit="return validarFormulario()">
+		<label>Nombre: <br />
+			<input type=text name=nombre placeholder='Escribe el nombre de tu personaje' required />
+		</label>
+		
+		<label>Raza: <br />
+			<select name=raza required>
+				<option value=''>Selecciona una raza</option>
+				<option>Humano</option>
+				<option>Elfo</option>
+				<option>Mediano</option>
+				<option>Enano</option>
+			</select>
+		</label>
+		<button>Enviar</button>
+	</form>
+	<script src=script.js></script>
+</body>
+</html>
+
