@@ -4,7 +4,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$nombre = $_POST['nombre'];
 	$raza = $_POST['raza'];
 
-	// Validar los datos del formulario
+	// Enviar la respuesta
+	echo generarRespuesta($nombre, $raza);
+}
+
+function generarRespuesta($nombre, $raza){
+	
 	if (strlen($nombre) >= 3) {
 		// Generar la respuesta
 		$respuesta = "Hola $nombre. Eres un $raza.";
@@ -13,6 +18,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$respuesta = "El nombre debe tener al menos 3 caracteres.";
 	}
 
-	// Enviar la respuesta
-	echo $respuesta;
+	return $respuesta;
 }
