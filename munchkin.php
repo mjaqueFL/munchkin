@@ -1,18 +1,24 @@
 <?php
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-	// Obtener los datos del formulario
-	$nombre = $_POST['nombre'];
-	$raza = $_POST['raza'];
 
-	// Validar los datos del formulario
-	if (strlen($nombre) >= 3) {
-		// Generar la respuesta
-		$respuesta = "Hola $nombre. Eres un $raza.";
-	} else {
-		// Si el nombre no tiene la longitud adecuada, generar un mensaje de error
-		$respuesta = "El nombre debe tener al menos 3 caracteres.";
-	}
+$nombre = $_POST['nombre'];
+$raza = $_POST['raza'];
 
-	// Enviar la respuesta
-	echo $respuesta;
+echo generarRespuesta($nombre, $raza);
+
+/**
+ * Genera la respuesta que vamos a enviar al cliente.
+ *
+ * Primero comprueba la longitud del nombre.
+ * Concatena el nombre con la raza y lo devuelve.
+ * @param $name {String} Nombre del jugador 
+ * @param $race {String} Raza del jugador
+ * @return {String} Texto de la respuesta
+ * */
+function generarRespuesta($name, $race){
+	if (strlen($name) < 3)
+		$respuesta= 'El nombre es demasiado corto';
+	else
+		$respuesta = "Hola $name. Eres un/a $race.";
+	return $respuesta;
 }
+
